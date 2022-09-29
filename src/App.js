@@ -3,8 +3,7 @@ import Docs from './Components/docs';
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <Docs />
   );
 }
 

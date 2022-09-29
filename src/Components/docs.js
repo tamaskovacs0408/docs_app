@@ -2,7 +2,7 @@ import React from 'react';
 
 const Docs = () => {
   return (
-    <div>
+    <div className='docs_main'>
       <h1>Docs</h1>
     </div>
   );
