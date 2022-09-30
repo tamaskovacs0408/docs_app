@@ -6,16 +6,18 @@ const Docs = ({ db }) => {
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState("");
   const handleOpen = () => setOpen(true);
-  const collectionRef = (db, "docsData");
+  const collectionRef = collection(db, 'docsData')
   const addData = () => {
-    addDoc(collectionRef, { title: title })
-      .then(() => {
-        alert("Data added!");
-      })
-      .catch(() => {
-        alert("Data cannot be added!");
-      });
-  };
+    addDoc(collectionRef, {
+        title: title
+    })
+    .then(() => {
+        alert('Data added!')
+    })
+    .catch(() => {
+        alert('Data cannot be added!')
+    })
+}
 
   return (
     <div className="docs_main">
