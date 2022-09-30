@@ -28,7 +28,20 @@ const ModalComp = () => {
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-      ></Modal>
+      >
+        <Box sx={style}>
+          <Typography
+            id="modal-modal-title"
+            variant="h6"
+            component="h2"
+          >
+            Text in a modal
+          </Typography>
+          <Typography id="modal-modal-description" sx={{mt: 2}}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, maxime?
+          </Typography>
+        </Box>
+      </Modal>
     </div>
   );
 };
