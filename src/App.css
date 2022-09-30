@@ -1,6 +1,10 @@
 .docs_main {
   text-align: center;
 }
+h1 {
+  font-size: 3.5rem;
+  font-weight: 600;
+}
 .add_doc_btn {
   width: 200px;
   height: 40px;
@@ -9,4 +13,14 @@
   cursor: pointer;
   font-family: 'Montserrat', sans-serif;
   font-size: 1.8rem;
+}
+.add_input {
+  width: 95%;
+  height: 40px;
+  outline: none;
+  border: 1px solid #676767;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  padding: 10px;
+  margin: 0 auto;
 }

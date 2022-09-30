@@ -16,7 +16,7 @@ const style = {
   p: 4,
 };
 
-const ModalComp = ({open, setOpen}) => {
+const ModalComp = ({ open, setOpen }) => {
   const handleClose = () => setOpen(false);
 
   return (
@@ -28,16 +28,14 @@ const ModalComp = ({open, setOpen}) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography
-            id="modal-modal-title"
-            variant="h6"
-            component="h2"
-          >
+          <input placeholder="Add tilte" className="add_input" />
+          {/* <Typography id="modal-modal-title" variant="h6" component="h2">
             Text in a modal
           </Typography>
-          <Typography id="modal-modal-description" sx={{mt: 2}}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, maxime?
-          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit,
+            maxime?
+          </Typography> */}
         </Box>
       </Modal>
     </div>
