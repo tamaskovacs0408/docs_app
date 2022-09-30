@@ -1,7 +1,6 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 
 const style = {
@@ -16,7 +15,7 @@ const style = {
   p: 4,
 };
 
-const ModalComp = ({ open, setOpen }) => {
+const ModalComp = ({ open, setOpen, title, setTitle }) => {
   const handleClose = () => setOpen(false);
 
   return (
@@ -28,17 +27,15 @@ const ModalComp = ({ open, setOpen }) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <input placeholder="Add tilte" className="add_input" />
+          <input
+            placeholder="Add tilte"
+            className="add_input"
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
+          />
           <div className="btn_container">
             <button className="add_doc_btn">ADD</button>
           </div>
-          {/* <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit,
-            maxime?
-          </Typography> */}
         </Box>
       </Modal>
     </div>
