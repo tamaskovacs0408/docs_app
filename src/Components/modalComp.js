@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -16,9 +16,7 @@ const style = {
   p: 4,
 };
 
-const ModalComp = () => {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
+const ModalComp = ({open, setOpen}) => {
   const handleClose = () => setOpen(false);
 
   return (
