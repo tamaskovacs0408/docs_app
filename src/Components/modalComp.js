@@ -29,6 +29,9 @@ const ModalComp = ({ open, setOpen }) => {
       >
         <Box sx={style}>
           <input placeholder="Add tilte" className="add_input" />
+          <div className="btn_container">
+            <button className="add_doc_btn">ADD</button>
+          </div>
           {/* <Typography id="modal-modal-title" variant="h6" component="h2">
             Text in a modal
           </Typography>

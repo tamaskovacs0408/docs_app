@@ -10,7 +10,7 @@ const Docs = () => {
       <h1>Docs</h1>
 
       <button className="add_doc_btn" onClick={handleOpen}>
-        Add document
+        ADD DOCUMENT
       </button>
       <ModalComp open={open} setOpen={setOpen}/>
     </div>
