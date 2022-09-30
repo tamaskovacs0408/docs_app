@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import ModalComp from "./modalComp";
 
-const Docs = () => {
+const Docs = ({db}) => {
   const [open, setOpen] = useState(false);
+  const [title, setTitle] = useState('');
   const handleOpen = () => setOpen(true);
 
   return (
@@ -12,7 +13,7 @@ const Docs = () => {
       <button className="add_doc_btn" onClick={handleOpen}>
         ADD DOCUMENT
       </button>
-      <ModalComp open={open} setOpen={setOpen}/>
+      <ModalComp open={open} setOpen={setOpen} title={title} setTitle={setTitle}/>
     </div>
   );
 }
