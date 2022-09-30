@@ -15,7 +15,7 @@ const style = {
   p: 4,
 };
 
-const ModalComp = ({ open, setOpen, title, setTitle }) => {
+const ModalComp = ({ open, setOpen, title, setTitle, addData }) => {
   const handleClose = () => setOpen(false);
 
   return (
@@ -34,7 +34,7 @@ const ModalComp = ({ open, setOpen, title, setTitle }) => {
             value={title}
           />
           <div className="btn_container">
-            <button className="add_doc_btn">ADD</button>
+            <button className="add_doc_btn" onClick={addData}>ADD</button>
           </div>
         </Box>
       </Modal>
