@@ -6,6 +6,7 @@ const Docs = ({ db }) => {
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState("");
   const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const collectionRef = collection(db, 'docsData')
   const addData = () => {
     addDoc(collectionRef, {
@@ -13,6 +14,7 @@ const Docs = ({ db }) => {
     })
     .then(() => {
         alert('Data added!')
+        handleClose()
     })
     .catch(() => {
         alert('Data cannot be added!')
@@ -31,6 +33,7 @@ const Docs = ({ db }) => {
         setOpen={setOpen}
         title={title}
         setTitle={setTitle}
+        handleClose={handleClose}
         addData={addData}
       />
     </div>

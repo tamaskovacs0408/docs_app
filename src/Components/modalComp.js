@@ -15,8 +15,7 @@ const style = {
   p: 4,
 };
 
-const ModalComp = ({ open, setOpen, title, setTitle, addData }) => {
-  const handleClose = () => setOpen(false);
+const ModalComp = ({ open, setOpen, title, setTitle, addData, handleClose }) => {
 
   return (
     <div>
