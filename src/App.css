@@ -1,3 +1,10 @@
 .docs_main {
   text-align: center;
 }
+.add_doc_btn {
+  width: 200px;
+  height: 40px;
+  border: none;
+  background-color: #ffc107;
+  cursor: pointer;
+}
