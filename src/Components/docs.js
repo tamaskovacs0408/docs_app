@@ -56,6 +56,7 @@ const Docs = ({ db }) => {
           return (
             <div key={doc.id} className="grid_child" onClick={() => getID(doc.id)}>
               <p>{doc.title}</p>
+              <div dangerouslySetInnerHTML={{__html: doc.typing}}></div>
             </div>
           )
         })}
