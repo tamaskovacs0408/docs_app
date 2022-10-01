@@ -6,7 +6,7 @@ import { updateDoc, collection, doc, onSnapshot } from "firebase/firestore";
 
 export default function Edit({ db }) {
   const [typing, setTyping] = useState("");
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = useState("");
   const isMounted = useRef();
   const collectionRef = collection(db, "docsData");
   let params = useParams();
@@ -20,7 +20,7 @@ export default function Edit({ db }) {
         typing: typing,
       })
         .then(() => {
-          alert("Document saved!");
+          // alert("Document saved!");
         })
         .catch(() => {
           alert("Document cannot be saved!");
@@ -30,12 +30,12 @@ export default function Edit({ db }) {
   }, [typing]);
 
   const getData = () => {
-    const document = doc(collectionRef, params.id)
+    const document = doc(collectionRef, params.id);
     onSnapshot(document, (docs) => {
-      setTitle(docs.data().title)
-      setTyping(docs.data().typing)
-    })
-  }
+      setTitle(docs.data().title);
+      setTyping(docs.data().typing);
+    });
+  };
 
   useEffect(() => {
     if (isMounted.current) {
@@ -43,13 +43,15 @@ export default function Edit({ db }) {
     }
 
     isMounted.current = true;
-    getData()
-  }, [])
+    getData();
+  }, []);
 
   return (
-    <div>
+    <div className="edit_container">
       <h1>{title}</h1>
-      <ReactQuill value={typing} onChange={getQuillData} />
+      <div className="edit_inner">
+        <ReactQuill className="quill" value={typing} onChange={getQuillData} />
+      </div>
     </div>
   );
 }
