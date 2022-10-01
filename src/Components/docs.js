@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ModalComp from "./modalComp";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, onSnapshot } from "firebase/firestore";
 
 const Docs = ({ db }) => {
   const [open, setOpen] = useState(false);
@@ -19,7 +19,18 @@ const Docs = ({ db }) => {
     .catch(() => {
         alert('Data cannot be added!')
     })
-}
+  }
+  const getData = () => {
+    onSnapshot(collectionRef, (data) => {
+      console.log(data.docs.map((doc) => {
+        return {...doc.data(), id: doc.id}
+      }))
+    })
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
 
   return (
     <div className="docs_main">
