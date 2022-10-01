@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ModalComp from "./modalComp";
 import { addDoc, collection, onSnapshot } from "firebase/firestore";
 
 const Docs = ({ db }) => {
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState("");
+  const [docsData, setDocsData] = useState([]);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const collectionRef = collection(db, 'docsData')
+  const isMounted = useRef();
   const addData = () => {
     addDoc(collectionRef, {
         title: title
@@ -22,14 +24,19 @@ const Docs = ({ db }) => {
   }
   const getData = () => {
     onSnapshot(collectionRef, (data) => {
-      console.log(data.docs.map((doc) => {
+      setDocsData(data.docs.map((doc) => {
         return {...doc.data(), id: doc.id}
       }))
     })
   }
 
   useEffect(() => {
-    getData()
+    if(isMounted.current) {
+      return;
+    }
+
+    isMounted.current = true;
+    getData();
   }, [])
 
   return (
