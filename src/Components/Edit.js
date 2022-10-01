@@ -25,7 +25,7 @@ export default function Edit({ db }) {
         });
     }, 1000);
     return () => clearTimeout(updateDocument);
-  }, []);
+  }, [typing]);
 
   return (
     <div>
