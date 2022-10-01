@@ -3,6 +3,8 @@ import { NavLink, useParams } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { updateDoc, collection, doc, onSnapshot } from "firebase/firestore";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Edit({ db }) {
   const [typing, setTyping] = useState("");
@@ -20,10 +22,26 @@ export default function Edit({ db }) {
         typing: typing,
       })
         .then(() => {
-          // alert("Document saved!");
+          toast.success("Document saved!", {
+            position: "top-center",
+            autoClose: 1500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+          });
         })
         .catch(() => {
-          alert("Document cannot be saved!");
+          toast.error("Document cannot be saved!", {
+            position: "top-center",
+            autoClose: 1500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+          });
         });
     }, 1000);
     return () => clearTimeout(updateDocument);
@@ -48,6 +66,7 @@ export default function Edit({ db }) {
 
   return (
     <div className="edit_container">
+      <ToastContainer />
       <h1 className="edit_title">{title}</h1>
       <NavLink className="link_back" to="/">
         Back to docs
