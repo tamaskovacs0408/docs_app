@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { updateDoc, collection, doc, onSnapshot } from "firebase/firestore";
@@ -48,7 +48,8 @@ export default function Edit({ db }) {
 
   return (
     <div className="edit_container">
-      <h1>{title}</h1>
+      <NavLink to='/'>Back to docs</NavLink>
+      <h1 className="edit_title">{title}</h1>
       <div className="edit_inner">
         <ReactQuill className="quill" value={typing} onChange={getQuillData} />
       </div>
