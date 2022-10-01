@@ -49,7 +49,7 @@ const Docs = ({ db }) => {
       <div className="grid_main">
         {docsData.map((doc) => {
           return (
-            <div className="grid_child">
+            <div key={doc.id} className="grid_child">
               <p>{doc.title}</p>
             </div>
           )
