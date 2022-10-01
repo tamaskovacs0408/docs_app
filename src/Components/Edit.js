@@ -48,8 +48,10 @@ export default function Edit({ db }) {
 
   return (
     <div className="edit_container">
-      <NavLink to='/'>Back to docs</NavLink>
       <h1 className="edit_title">{title}</h1>
+      <NavLink className="link_back" to="/">
+        Back to docs
+      </NavLink>
       <div className="edit_inner">
         <ReactQuill className="quill" value={typing} onChange={getQuillData} />
       </div>
