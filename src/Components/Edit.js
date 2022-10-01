@@ -32,13 +32,13 @@ export default function Edit({ db }) {
   const getData = () => {
     const document = doc(collectionRef, params.id)
     onSnapshot(document, (docs) => {
-      setTitle(doc.data().title)
+      setTitle(docs.data().title)
       setTyping(docs.data().typing)
     })
   }
 
   useEffect(() => {
-    if (isMounted.curret) {
+    if (isMounted.current) {
       return;
     }
 
@@ -48,7 +48,7 @@ export default function Edit({ db }) {
 
   return (
     <div>
-      <h1>Edit</h1>
+      <h1>{title}</h1>
       <ReactQuill value={typing} onChange={getQuillData} />
     </div>
   );
