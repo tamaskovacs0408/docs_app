@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import ModalComp from "./modalComp";
 import { addDoc, collection, onSnapshot } from "firebase/firestore";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Docs = ({ db }) => {
   const [open, setOpen] = useState(false);
@@ -9,44 +11,63 @@ const Docs = ({ db }) => {
   const [docsData, setDocsData] = useState([]);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const collectionRef = collection(db, 'docsData')
+  const collectionRef = collection(db, "docsData");
   const isMounted = useRef();
   let navigate = useNavigate();
 
   const addData = () => {
     addDoc(collectionRef, {
-        title: title,
-        typing: '',
+      title: title,
+      typing: "",
     })
-    .then(() => {
-        alert('Data added!')
-        handleClose()
-    })
-    .catch(() => {
-        alert('Data cannot be added!')
-    })
-  }
+      .then(() => {
+        toast.success("Document added!", {
+          position: "top-center",
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+        });
+        // handleClose()
+      })
+      .catch(() => {
+        toast.error("Document cannot be added!", {
+          position: "top-center",
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+        });
+      });
+  };
   const getData = () => {
     onSnapshot(collectionRef, (data) => {
-      setDocsData(data.docs.map((doc) => {
-        return {...doc.data(), id: doc.id}
-      }))
-    })
-  }
+      setDocsData(
+        data.docs.map((doc) => {
+          return { ...doc.data(), id: doc.id };
+        })
+      );
+    });
+  };
 
   useEffect(() => {
-    if(isMounted.current) {
+    if (isMounted.current) {
       return;
     }
 
     isMounted.current = true;
     getData();
-  }, [])
+  }, []);
   const getID = (id) => {
-    navigate(`/edit/${id}`)
-  }
+    navigate(`/edit/${id}`);
+  };
   return (
     <div className="docs_main">
+      <ToastContainer />
       <h1>Docs</h1>
 
       <button className="add_doc_btn" onClick={handleOpen}>
@@ -55,10 +76,14 @@ const Docs = ({ db }) => {
       <div className="grid_main">
         {docsData.map((doc) => {
           return (
-            <div key={doc.id} className="grid_child" onClick={() => getID(doc.id)}>
+            <div
+              key={doc.id}
+              className="grid_child"
+              onClick={() => getID(doc.id)}
+            >
               <p>{doc.title}</p>
             </div>
-          )
+          );
         })}
       </div>
       <ModalComp
