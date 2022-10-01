@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import ModalComp from "./modalComp";
 import { addDoc, collection, onSnapshot } from "firebase/firestore";
 
@@ -10,6 +11,8 @@ const Docs = ({ db }) => {
   const handleClose = () => setOpen(false);
   const collectionRef = collection(db, 'docsData')
   const isMounted = useRef();
+  let navigate = useNavigate();
+
   const addData = () => {
     addDoc(collectionRef, {
         title: title
@@ -38,7 +41,9 @@ const Docs = ({ db }) => {
     isMounted.current = true;
     getData();
   }, [])
-
+  const getID = (id) => {
+    navigate(`/edit/${id}`)
+  }
   return (
     <div className="docs_main">
       <h1>Docs</h1>
@@ -49,7 +54,7 @@ const Docs = ({ db }) => {
       <div className="grid_main">
         {docsData.map((doc) => {
           return (
-            <div key={doc.id} className="grid_child">
+            <div key={doc.id} className="grid_child" onClick={() => getID(doc.id)}>
               <p>{doc.title}</p>
             </div>
           )
