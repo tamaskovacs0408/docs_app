@@ -46,6 +46,15 @@ const Docs = ({ db }) => {
       <button className="add_doc_btn" onClick={handleOpen}>
         ADD DOCUMENT
       </button>
+      <div className="grid_main">
+        {docsData.map((doc) => {
+          return (
+            <div className="grid_child">
+              <p>{doc.title}</p>
+            </div>
+          )
+        })}
+      </div>
       <ModalComp
         open={open}
         setOpen={setOpen}
