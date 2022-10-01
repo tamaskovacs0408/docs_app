@@ -6,6 +6,7 @@ import { updateDoc, collection, doc, onSnapshot } from "firebase/firestore";
 
 export default function Edit({ db }) {
   const [typing, setTyping] = useState("");
+  const [title, setTitle] = useState('');
   const isMounted = useRef();
   const collectionRef = collection(db, "docsData");
   let params = useParams();
@@ -31,6 +32,7 @@ export default function Edit({ db }) {
   const getData = () => {
     const document = doc(collectionRef, params.id)
     onSnapshot(document, (docs) => {
+      setTitle(doc.data().title)
       setTyping(docs.data().typing)
     })
   }
