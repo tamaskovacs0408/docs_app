@@ -15,7 +15,8 @@ const Docs = ({ db }) => {
 
   const addData = () => {
     addDoc(collectionRef, {
-        title: title
+        title: title,
+        typing: '',
     })
     .then(() => {
         alert('Data added!')
