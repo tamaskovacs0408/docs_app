@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
@@ -6,6 +6,7 @@ import { updateDoc, collection, doc, onSnapshot } from "firebase/firestore";
 
 export default function Edit({ db }) {
   const [typing, setTyping] = useState("");
+  const isMounted = useRef();
   const collectionRef = collection(db, "docsData");
   let params = useParams();
   const getQuillData = (value) => {
@@ -26,6 +27,22 @@ export default function Edit({ db }) {
     }, 1000);
     return () => clearTimeout(updateDocument);
   }, [typing]);
+
+  const getData = () => {
+    const document = doc(collectionRef, params.id)
+    onSnapshot(document, (docs) => {
+      setTyping(docs.data().typing)
+    })
+  }
+
+  useEffect(() => {
+    if (isMounted.curret) {
+      return;
+    }
+
+    isMounted.current = true;
+    getData()
+  }, [])
 
   return (
     <div>
