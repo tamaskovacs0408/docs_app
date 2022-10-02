@@ -11,6 +11,7 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
 const Docs = ({ db }) => {
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState("");
@@ -89,6 +90,7 @@ const Docs = ({ db }) => {
             <div key={doc.id} className="grid_child">
               <button className="btn btn_open" onClick={() => getID(doc.id)}>{doc.title}</button>
               <button className="btn btn_delete" onClick={() => delData(doc.id)}>X</button>
+              
             </div>
           );
         })}
