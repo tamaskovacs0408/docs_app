@@ -7,18 +7,25 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
+  width: 300,
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
 };
 
-const ModalComp = ({ open, setOpen, title, setTitle, addData, handleClose }) => {
-
+const ModalComp = ({
+  open,
+  setOpen,
+  title,
+  setTitle,
+  addData,
+  handleClose,
+}) => {
   return (
     <div>
       <Modal
+        className="modal_container"
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
@@ -32,7 +39,9 @@ const ModalComp = ({ open, setOpen, title, setTitle, addData, handleClose }) => 
             value={title}
           />
           <div className="btn_container">
-            <button className="add_doc_btn" onClick={addData}>ADD</button>
+            <button className="add_doc_btn" onClick={addData}>
+              ADD
+            </button>
           </div>
         </Box>
       </Modal>
