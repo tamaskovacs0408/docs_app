@@ -87,8 +87,8 @@ const Docs = ({ db }) => {
         {docsData.map((doc) => {
           return (
             <div key={doc.id} className="grid_child">
-              <button onClick={() => getID(doc.id)}>{doc.title}</button>
-              <button onClick={() => delData(doc.id)}>X</button>
+              <button className="btn btn_open" onClick={() => getID(doc.id)}>{doc.title}</button>
+              <button className="btn btn_delete" onClick={() => delData(doc.id)}>X</button>
             </div>
           );
         })}
