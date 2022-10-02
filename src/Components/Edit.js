@@ -24,7 +24,7 @@ export default function Edit({ db }) {
         .then(() => {
           toast.success("Document saved!", {
             position: "top-center",
-            autoClose: 1500,
+            autoClose: 800,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: false,
@@ -35,7 +35,7 @@ export default function Edit({ db }) {
         .catch(() => {
           toast.error("Document cannot be saved!", {
             position: "top-center",
-            autoClose: 1500,
+            autoClose: 800,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: false,

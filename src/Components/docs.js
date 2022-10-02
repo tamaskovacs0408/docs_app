@@ -29,7 +29,7 @@ const Docs = ({ db }) => {
       .then(() => {
         toast.success("Document added!", {
           position: "top-center",
-          autoClose: 1000,
+          autoClose: 800,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: false,
@@ -41,7 +41,7 @@ const Docs = ({ db }) => {
       .catch(() => {
         toast.error("Document cannot be added!", {
           position: "top-center",
-          autoClose: 1500,
+          autoClose: 800,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: false,
