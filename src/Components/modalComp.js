@@ -27,7 +27,7 @@ const ModalComp = ({ open, setOpen, title, setTitle, addData, handleClose }) => 
       >
         <Box sx={style}>
           <input
-            placeholder="Add tilte"
+            placeholder="Add title"
             className="add_input"
             onChange={(e) => setTitle(e.target.value)}
             value={title}
