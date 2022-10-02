@@ -12,16 +12,24 @@
   width: 200px;
   height: 40px;
   border: none;
+  border-radius: 5px;
   background-color: #587B7F;
+  color: #FDFFFC;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
   font-size: 1.8rem;
+  font-weight: 600;
+  transition: background-color ease-in-out 0.2s;
+}
+.add_doc_btn:hover {
+  background-color: #456265
 }
 .add_input {
   width: 95%;
   height: 40px;
   outline: none;
-  border: 1px solid #676767;
+  border: 1px solid #587B7F;
+  border-radius: 5px;
   font-family: "Montserrat", sans-serif;
   font-size: 1.8rem;
   padding: 10px;
