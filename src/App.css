@@ -142,4 +142,10 @@ padding: 4px !important;
   .btn {
     font-size: 3rem;
   }
+  .link_back, .back_icon {
+    font-size: 1.8rem;
+  }
+  .edit_inner {
+    min-height: 700px;
+  }
 }
