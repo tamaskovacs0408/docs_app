@@ -10,7 +10,8 @@ import {
 } from "firebase/firestore";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Docs = ({ db }) => {
   const [open, setOpen] = useState(false);
@@ -62,9 +63,9 @@ const Docs = ({ db }) => {
   };
 
   const delData = async (id) => {
-    const docRef = doc(db, 'docsData', id);
+    const docRef = doc(db, "docsData", id);
     await deleteDoc(docRef);
-  }
+  };
   useEffect(() => {
     if (isMounted.current) {
       return;
@@ -88,9 +89,15 @@ const Docs = ({ db }) => {
         {docsData.map((doc) => {
           return (
             <div key={doc.id} className="grid_child">
-              <button className="btn btn_open" onClick={() => getID(doc.id)}>{doc.title}</button>
-              <button className="btn btn_delete" onClick={() => delData(doc.id)}>X</button>
-              
+              <button className="btn_open" onClick={() => getID(doc.id)}>
+                {doc.title}
+              </button>
+
+              <FontAwesomeIcon
+                className="btn_delete"
+                onClick={() => delData(doc.id)}
+                icon={faTrashAlt}
+              />
             </div>
           );
         })}
