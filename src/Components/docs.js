@@ -1,7 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import ModalComp from "./modalComp";
-import { addDoc, collection, onSnapshot } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  onSnapshot,
+  doc,
+  deleteDoc,
+} from "firebase/firestore";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -23,14 +29,14 @@ const Docs = ({ db }) => {
       .then(() => {
         toast.success("Document added!", {
           position: "top-center",
-          autoClose: 1500,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: false,
           draggable: false,
           progress: undefined,
         });
-        // handleClose()
+        handleClose();
       })
       .catch(() => {
         toast.error("Document cannot be added!", {
@@ -54,6 +60,10 @@ const Docs = ({ db }) => {
     });
   };
 
+  const delData = async (id) => {
+    const docRef = doc(db, 'docsData', id);
+    await deleteDoc(docRef);
+  }
   useEffect(() => {
     if (isMounted.current) {
       return;
@@ -76,12 +86,9 @@ const Docs = ({ db }) => {
       <div className="grid_main">
         {docsData.map((doc) => {
           return (
-            <div
-              key={doc.id}
-              className="grid_child"
-              onClick={() => getID(doc.id)}
-            >
-              <p>{doc.title}</p>
+            <div key={doc.id} className="grid_child">
+              <button onClick={() => getID(doc.id)}>{doc.title}</button>
+              <button onClick={() => delData(doc.id)}>X</button>
             </div>
           );
         })}
