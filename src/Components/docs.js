@@ -89,12 +89,12 @@ const Docs = ({ db }) => {
         {docsData.map((doc) => {
           return (
             <div key={doc.id} className="grid_child">
-              <button className="btn_open" onClick={() => getID(doc.id)}>
+              <button className="btn btn_open" onClick={() => getID(doc.id)}>
                 {doc.title}
               </button>
 
               <FontAwesomeIcon
-                className="btn_delete"
+                className="btn btn_delete"
                 onClick={() => delData(doc.id)}
                 icon={faTrashAlt}
               />
