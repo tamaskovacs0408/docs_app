@@ -13,8 +13,8 @@
   height: 40px;
   border: none;
   border-radius: 5px;
-  background-color: #587B7F;
-  color: #FDFFFC;
+  background-color: #587b7f;
+  color: #fdfffc;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
   font-size: 1.8rem;
@@ -22,13 +22,13 @@
   transition: background-color ease-in-out 0.2s;
 }
 .add_doc_btn:hover {
-  background-color: #456265
+  background-color: #456265;
 }
 .add_input {
   width: 95%;
   height: 40px;
   outline: none;
-  border: 1px solid #587B7F;
+  border: 1px solid #587b7f;
   border-radius: 5px;
   font-family: "Montserrat", sans-serif;
   font-size: 2rem;
@@ -52,7 +52,7 @@
 
 .grid_child {
   padding: 20px;
-  background-color: #29335C;
+  background-color: #29335c;
   width: 300px;
   display: flex;
   justify-content: space-between;
@@ -69,14 +69,14 @@
 }
 .btn_open {
   margin-left: 20px;
-  letter-spacing: .8px;
+  letter-spacing: 0.8px;
   font-weight: 500;
 }
 .btn_delete {
   margin-right: 5px;
 }
 .btn_open:hover {
-  color: #F2EECB;
+  color: #f2eecb;
 }
 .btn_delete:hover {
   color: #de1414;
@@ -121,14 +121,14 @@
   font-family: "Open Sans", sans-serif;
 }
 .ql-toolbar.ql-snow {
-text-align: center !important;
-padding: 4px !important;
+  text-align: center !important;
+  padding: 4px !important;
 }
 .ql-container.ql-snow {
   border: none !important;
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px) {
   .main_title {
     font-size: 5rem;
   }
@@ -142,10 +142,26 @@ padding: 4px !important;
   .btn {
     font-size: 3rem;
   }
-  .link_back, .back_icon {
+  .link_back,
+  .back_icon {
     font-size: 1.8rem;
   }
   .edit_inner {
     min-height: 700px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .main_title {
+    font-size: 5.5rem;
+  }
+  .add_doc_btn {
+    font-size: 2.5rem;
+  }
+  .btn_outer {
+    width: 250px;
+  }
+  .edit_inner {
+    min-height: 550px;
   }
 }

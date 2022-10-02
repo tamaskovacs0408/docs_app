@@ -82,7 +82,7 @@ const Docs = ({ db }) => {
       <ToastContainer />
       <h1 className="main_title">Docs</h1>
 
-      <button className="add_doc_btn" onClick={handleOpen}>
+      <button className="add_doc_btn btn_outer" onClick={handleOpen}>
         ADD DOCUMENT
       </button>
       <div className="grid_main">
