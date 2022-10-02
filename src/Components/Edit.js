@@ -5,6 +5,8 @@ import "react-quill/dist/quill.snow.css";
 import { updateDoc, collection, doc, onSnapshot } from "firebase/firestore";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowAltCircleLeft } from "@fortawesome/free-solid-svg-icons";
 
 export default function Edit({ db }) {
   const [typing, setTyping] = useState("");
@@ -87,6 +89,7 @@ export default function Edit({ db }) {
       <ToastContainer />
       <h1 className="edit_title">{title}</h1>
       <NavLink className="link_back" to="/">
+        <FontAwesomeIcon className='back_icon' icon={faArrowAltCircleLeft}/>
         Back to docs
       </NavLink>
       <div className="edit_inner">
