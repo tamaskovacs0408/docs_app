@@ -165,3 +165,8 @@
     min-height: 550px;
   }
 }
+@media screen and (min-width: 1200px){
+  .grid_main {
+    grid-template-columns: auto auto auto;
+  }
+}
