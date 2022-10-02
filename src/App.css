@@ -1,15 +1,18 @@
 .docs_main {
   text-align: center;
 }
-h1 {
-  font-size: 3.5rem;
+.main_title {
+  font-size: 4rem;
   font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 10px auto 15px auto;
 }
 .add_doc_btn {
   width: 200px;
   height: 40px;
   border: none;
-  background-color: #ffc107;
+  background-color: #587B7F;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
   font-size: 1.8rem;
@@ -41,7 +44,7 @@ h1 {
 
 .grid_child {
   padding: 20px;
-  background-color: #3B3B3B;
+  background-color: #29335C;
   width: 300px;
   display: flex;
   justify-content: space-between;
@@ -53,18 +56,22 @@ h1 {
   font-size: 2.5rem;
   border: none;
   background-color: transparent;
-  color: whitesmoke;
+  color: white;
   transition: color ease-in-out 0.2s;
 }
 .btn_open {
   margin-left: 20px;
   letter-spacing: .8px;
+  font-weight: 500;
 }
 .btn_delete {
   margin-right: 5px;
 }
-.btn:hover {
-  color: white;
+.btn_open:hover {
+  color: #F2EECB;
+}
+.btn_delete:hover {
+  color: #de1414;
 }
 
 .edit_container {

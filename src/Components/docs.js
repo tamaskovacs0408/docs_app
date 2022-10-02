@@ -80,7 +80,7 @@ const Docs = ({ db }) => {
   return (
     <div className="docs_main">
       <ToastContainer />
-      <h1>Docs</h1>
+      <h1 className="main_title">Docs</h1>
 
       <button className="add_doc_btn" onClick={handleOpen}>
         ADD DOCUMENT
