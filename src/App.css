@@ -31,7 +31,7 @@
   border: 1px solid #587B7F;
   border-radius: 5px;
   font-family: "Montserrat", sans-serif;
-  font-size: 1.8rem;
+  font-size: 2rem;
   padding: 10px;
   margin: 0 auto;
 }
@@ -126,4 +126,20 @@ padding: 4px !important;
 }
 .ql-container.ql-snow {
   border: none !important;
+}
+
+@media screen and (min-width: 768px){
+  .main_title {
+    font-size: 5rem;
+  }
+  .add_doc_btn {
+    font-size: 2rem;
+    padding: 5px;
+  }
+  .grid_main {
+    grid-template-columns: auto auto;
+  }
+  .btn {
+    font-size: 3rem;
+  }
 }
