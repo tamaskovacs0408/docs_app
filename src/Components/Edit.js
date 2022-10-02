@@ -12,10 +12,23 @@ export default function Edit({ db }) {
   const isMounted = useRef();
   const collectionRef = collection(db, "docsData");
   let params = useParams();
-
-
-
-
+  const quillModule = {
+    toolbar: [
+      [{ header: [1, 2, 3, false] }],
+      [{ font: [] }],
+      [{ align: [] }],
+      ["bold", "italic", "underline", "strike", "blockquote"],
+      [
+        { list: "ordered" },
+        { list: "bullet" },
+        { indent: "-1" },
+        { indent: "+1" },
+      ],
+      [{ color: [] }, { background: [] }],
+      ["link", "image"],
+      ["clean"],
+    ],
+  };
 
   const getQuillData = (value) => {
     setTyping(value);
@@ -77,7 +90,7 @@ export default function Edit({ db }) {
         Back to docs
       </NavLink>
       <div className="edit_inner">
-        <ReactQuill className="quill" theme='snow' value={typing} onChange={getQuillData} />
+        <ReactQuill className="quill" theme='snow' modules={quillModule} value={typing} onChange={getQuillData} />
       </div>
     </div>
   );
