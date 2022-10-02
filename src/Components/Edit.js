@@ -12,6 +12,11 @@ export default function Edit({ db }) {
   const isMounted = useRef();
   const collectionRef = collection(db, "docsData");
   let params = useParams();
+
+
+
+
+
   const getQuillData = (value) => {
     setTyping(value);
   };
@@ -72,7 +77,7 @@ export default function Edit({ db }) {
         Back to docs
       </NavLink>
       <div className="edit_inner">
-        <ReactQuill className="quill" value={typing} onChange={getQuillData} />
+        <ReactQuill className="quill" theme='snow' value={typing} onChange={getQuillData} />
       </div>
     </div>
   );
