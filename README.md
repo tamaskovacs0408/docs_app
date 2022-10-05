@@ -16,6 +16,11 @@ This React app can create documents what you can edit or delete, they are shared
 
 **Screenshots**
 
+This is the main page, where you can see all docs that you (or someone else) made:
 <img src="src/Screenshots/docs_screen.jpg" alt="screenshot">
+
+This is the document add function, you can enter the title into the input field:
 <img src="src/Screenshots/docs_add.jpg" alt="screenshot">
+
+This is the document edit page:
 <img src="src/Screenshots/docs_edit.jpg" alt="screenshot">
